@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'batman.dart';
+ 
 void main() {
   runApp(MyApp());
 }
@@ -71,6 +72,16 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Batman()),
+          );
+        },
+      ),
     );
   }
 }
@@ -106,5 +117,7 @@ class MovieCard extends StatelessWidget {
         ),
       ),
     );
+
+    
   }
 }
