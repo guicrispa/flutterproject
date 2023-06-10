@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
- 
+
 void main() {
   runApp(MyApp());
 }
@@ -14,9 +14,40 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => PresentationPage(),
+        '/home': (context) => HomePage(),
         DetalhesPagina.routeName: (context) => DetalhesPagina(),
       },
+    );
+  }
+}
+
+class PresentationPage extends StatelessWidget {
+  const PresentationPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Boas Vindas, Professor'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Trabalho de Flutter \n Everson Vieira, Guilherme Crispim e Sabrina Galvão',
+              style: TextStyle(fontSize: 35),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              child: const Text('Continuar'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
